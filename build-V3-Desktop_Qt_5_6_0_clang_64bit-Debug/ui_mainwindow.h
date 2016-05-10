@@ -15,9 +15,11 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -29,14 +31,18 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
+    QSpacerItem *verticalSpacer_3;
+    QLabel *label;
+    QSpacerItem *verticalSpacer_2;
     QGridLayout *gridLayout;
     QPushButton *pushButton_6;
-    QPushButton *pushButton_10;
-    QPushButton *pushButton;
-    QPushButton *pushButton_4;
+    QPushButton *pushButton_7;
     QPushButton *pushButton_5;
+    QPushButton *pushButton_4;
     QPushButton *pushButton_3;
-    QPushButton *pushButton_9;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton;
+    QSpacerItem *verticalSpacer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,8 +50,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(656, 443);
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        MainWindow->resize(640, 341);
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
@@ -58,60 +64,70 @@ public:
         centralwidget->setAutoFillBackground(false);
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setSizeConstraint(QLayout::SetMinimumSize);
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_3);
+
+        label = new QLabel(centralwidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setSizeConstraint(QLayout::SetFixedSize);
-        gridLayout->setHorizontalSpacing(-1);
-        gridLayout->setContentsMargins(0, -1, -1, -1);
+        gridLayout->setSizeConstraint(QLayout::SetMinimumSize);
         pushButton_6 = new QPushButton(centralwidget);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
 
-        gridLayout->addWidget(pushButton_6, 1, 1, 1, 1);
+        gridLayout->addWidget(pushButton_6, 1, 2, 1, 1);
 
-        pushButton_10 = new QPushButton(centralwidget);
-        pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
+        pushButton_7 = new QPushButton(centralwidget);
+        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
 
-        gridLayout->addWidget(pushButton_10, 1, 2, 1, 1);
-
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
-
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
-
-        pushButton_4 = new QPushButton(centralwidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-
-        gridLayout->addWidget(pushButton_4, 0, 1, 1, 1);
+        gridLayout->addWidget(pushButton_7, 2, 1, 1, 1);
 
         pushButton_5 = new QPushButton(centralwidget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
 
-        gridLayout->addWidget(pushButton_5, 1, 0, 1, 1);
+        gridLayout->addWidget(pushButton_5, 1, 1, 1, 1);
+
+        pushButton_4 = new QPushButton(centralwidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+
+        gridLayout->addWidget(pushButton_4, 1, 0, 1, 1);
 
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
 
         gridLayout->addWidget(pushButton_3, 0, 2, 1, 1);
 
-        pushButton_9 = new QPushButton(centralwidget);
-        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-        sizePolicy.setHeightForWidth(pushButton_9->sizePolicy().hasHeightForWidth());
-        pushButton_9->setSizePolicy(sizePolicy);
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
-        gridLayout->addWidget(pushButton_9, 2, 1, 1, 1);
+        gridLayout->addWidget(pushButton_2, 0, 1, 1, 1);
+
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 656, 22));
+        menubar->setGeometry(QRect(0, 0, 640, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -125,13 +141,14 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Biblioth\303\250que num\303\251rique", 0));
-        pushButton_6->setText(QApplication::translate("MainWindow", "Clear", 0));
-        pushButton_10->setText(QApplication::translate("MainWindow", "Reset", 0));
+        label->setText(QApplication::translate("MainWindow", "Quelle action souhaitez-vous effectuer ?", 0));
+        pushButton_6->setText(QApplication::translate("MainWindow", "Reset", 0));
+        pushButton_7->setText(QApplication::translate("MainWindow", "Bye", 0));
+        pushButton_5->setText(QApplication::translate("MainWindow", "Clear", 0));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Search", 0));
+        pushButton_3->setText(QApplication::translate("MainWindow", "List", 0));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Show", 0));
         pushButton->setText(QApplication::translate("MainWindow", "Load", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "List", 0));
-        pushButton_5->setText(QApplication::translate("MainWindow", "Search", 0));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Show", 0));
-        pushButton_9->setText(QApplication::translate("MainWindow", "Bye", 0));
     } // retranslateUi
 
 };

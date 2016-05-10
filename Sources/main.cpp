@@ -6,7 +6,7 @@
 #include <QtWidgets>
 #include "mainwindow.h"
 
-int main(int argc, char* argv[]) {
+int main() {
     // Utilisateur* user = new Utilisateur();
     // string nomUtilisateur;
     // string réponse;
@@ -39,12 +39,6 @@ int main(int argc, char* argv[]) {
     //     user->reconnaissanceAction(action, currentMed);
     // }
     
-    Utilisateur* user = new Utilisateur();
-     string nomUtilisateur;
-     string réponse;
-     string motPasse;
-     string action;
-     Mediatheque *currentMed = new Mediatheque();
     QApplication app(argc, argv);
 
     MainWindow fenetre;

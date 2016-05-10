@@ -49,9 +49,29 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../V3/main.cpp \
-		../V3/mainwindow.cpp moc_mainwindow.cpp
+		../V3/mainwindow.cpp \
+		../V3/article.cpp \
+		../V3/cd.cpp \
+		../V3/dvd.cpp \
+		../V3/livre.cpp \
+		../V3/mediatheque.cpp \
+		../V3/num.cpp \
+		../V3/ressouces.cpp \
+		../V3/revue.cpp \
+		../V3/utilisateur.cpp \
+		../V3/vhs.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		article.o \
+		cd.o \
+		dvd.o \
+		livre.o \
+		mediatheque.o \
+		num.o \
+		ressouces.o \
+		revue.o \
+		utilisateur.o \
+		vhs.o \
 		moc_mainwindow.o
 DIST          = /Users/MacMax/Qt/5.6/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/MacMax/Qt/5.6/clang_64/mkspecs/qdevice.pri \
@@ -194,8 +214,30 @@ DIST          = /Users/MacMax/Qt/5.6/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/MacMax/Qt/5.6/clang_64/mkspecs/features/exceptions.prf \
 		/Users/MacMax/Qt/5.6/clang_64/mkspecs/features/yacc.prf \
 		/Users/MacMax/Qt/5.6/clang_64/mkspecs/features/lex.prf \
-		../V3/V3.pro ../V3/mainwindow.h ../V3/main.cpp \
-		../V3/mainwindow.cpp
+		../V3/V3.pro ../V3/mainwindow.h \
+		../V3/article.h \
+		../V3/cd.h \
+		../V3/dvd.h \
+		../V3/library_string.h \
+		../V3/library_string2.h \
+		../V3/livre.h \
+		../V3/mediatheque.h \
+		../V3/num.h \
+		../V3/ressources.h \
+		../V3/revue.h \
+		../V3/utilisateur.h \
+		../V3/vhs.h ../V3/main.cpp \
+		../V3/mainwindow.cpp \
+		../V3/article.cpp \
+		../V3/cd.cpp \
+		../V3/dvd.cpp \
+		../V3/livre.cpp \
+		../V3/mediatheque.cpp \
+		../V3/num.cpp \
+		../V3/ressouces.cpp \
+		../V3/revue.cpp \
+		../V3/utilisateur.cpp \
+		../V3/vhs.cpp
 QMAKE_TARGET  = V3
 DESTDIR       = 
 TARGET        = V3.app/Contents/MacOS/V3
@@ -528,8 +570,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../V3/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../V3/main.cpp ../V3/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../V3/mainwindow.h ../V3/article.h ../V3/cd.h ../V3/dvd.h ../V3/library_string.h ../V3/library_string2.h ../V3/livre.h ../V3/mediatheque.h ../V3/num.h ../V3/ressources.h ../V3/revue.h ../V3/utilisateur.h ../V3/vhs.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../V3/main.cpp ../V3/mainwindow.cpp ../V3/article.cpp ../V3/cd.cpp ../V3/dvd.cpp ../V3/livre.cpp ../V3/mediatheque.cpp ../V3/num.cpp ../V3/ressouces.cpp ../V3/revue.cpp ../V3/utilisateur.cpp ../V3/vhs.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../V3/mainwindow.ui $(DISTDIR)/
 
 
@@ -582,7 +624,18 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-main.o: ../V3/main.cpp /Users/MacMax/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+main.o: ../V3/main.cpp ../Includes/ressources.h \
+		../Includes/livre.h \
+		../Includes/utilisateur.h \
+		../Includes/mediatheque.h \
+		../Includes/cd.h \
+		../Includes/article.h \
+		../Includes/num.h \
+		../Includes/revue.h \
+		../Includes/vhs.h \
+		../Includes/dvd.h \
+		../Includes/VHS.h \
+		/Users/MacMax/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/MacMax/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		/Users/MacMax/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		/Users/MacMax/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
@@ -720,6 +773,66 @@ mainwindow.o: ../V3/mainwindow.cpp ../V3/mainwindow.h \
 		/Users/MacMax/Qt/5.6/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../V3/mainwindow.cpp
+
+article.o: ../V3/article.cpp ../Includes/Article.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o article.o ../V3/article.cpp
+
+cd.o: ../V3/cd.cpp ../Includes/cd.h \
+		../Includes/ressources.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cd.o ../V3/cd.cpp
+
+dvd.o: ../V3/dvd.cpp ../Includes/DVD.h \
+		../Includes/VHS.h \
+		../Includes/ressources.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dvd.o ../V3/dvd.cpp
+
+livre.o: ../V3/livre.cpp ../Includes/livre.h \
+		../Includes/ressources.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o livre.o ../V3/livre.cpp
+
+mediatheque.o: ../V3/mediatheque.cpp ../Includes/mediatheque.h \
+		../Includes/ressources.h \
+		../Includes/livre.h \
+		../Includes/cd.h \
+		../Includes/article.h \
+		../Includes/num.h \
+		../Includes/revue.h \
+		../Includes/vhs.h \
+		../Includes/dvd.h \
+		../Includes/VHS.h \
+		../Includes/library_string2.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mediatheque.o ../V3/mediatheque.cpp
+
+num.o: ../V3/num.cpp ../Includes/Num.h \
+		../Includes/ressources.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o num.o ../V3/num.cpp
+
+ressouces.o: ../V3/ressouces.cpp ../Includes/ressources.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ressouces.o ../V3/ressouces.cpp
+
+revue.o: ../V3/revue.cpp ../Includes/Revue.h \
+		../Includes/livre.h \
+		../Includes/ressources.h \
+		../Includes/article.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o revue.o ../V3/revue.cpp
+
+utilisateur.o: ../V3/utilisateur.cpp ../Includes/utilisateur.h \
+		../Includes/mediatheque.h \
+		../Includes/ressources.h \
+		../Includes/livre.h \
+		../Includes/cd.h \
+		../Includes/article.h \
+		../Includes/num.h \
+		../Includes/revue.h \
+		../Includes/vhs.h \
+		../Includes/dvd.h \
+		../Includes/VHS.h \
+		../Includes/library_string.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o utilisateur.o ../V3/utilisateur.cpp
+
+vhs.o: ../V3/vhs.cpp ../Includes/VHS.h \
+		../Includes/ressources.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vhs.o ../V3/vhs.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
